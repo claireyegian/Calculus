@@ -26,7 +26,10 @@ def getValue(x):
     y = eval(Locfunction)
 
     return y"""
-function = input('Enter a function')
+a = float(input("coefficient 1: "))
+b = int(input("power 1: "))
+c = int(input("coefficient 2: "))
+d = int(input("power 2: "))
 
 x=3
-print(eval('function'))
+print(eval('a*(x**b)+c*(x**d)'))
