@@ -23,6 +23,15 @@ while a <= IntervalEnd:
     a += tick
 
 print(SlopeList)
+NumXVals = len(SlopeList)
+print(NumXVals)
+loc = 0
+for slope in SlopeList:
+    Quotient = SlopeList[loc]/SlopeList[loc+1]
+    if Quotient > 0:
+        pass
+    elif Quotient <= 0:
+        print(Quotient)
 
 """x = a + h
 f1 = eval(function)
