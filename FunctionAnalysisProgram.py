@@ -28,7 +28,7 @@ while a <= IntervalEnd:
 NumXVals = len(SlopeList)
 loc = 0
 while loc <= (NumXVals - 2):
-    if SlopeList[loc+1] =! 0:
+    if SlopeList[loc+1] != 0:
         Quotient = SlopeList[loc]/SlopeList[loc+1]
         if Quotient > 0:
             pass
