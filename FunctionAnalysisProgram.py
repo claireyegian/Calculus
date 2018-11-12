@@ -9,10 +9,10 @@ IntervalBeg = float(input('Enter the begining of the interval'))
 IntervalEnd = float(input('Enter the end of the interval'))
 
 #FIX VOCAB!!!
-tick = input('Enter the distance between ticks')
-SymDifXList = []
-a = IntervalBeg
+tick = float(input('Enter the distance between ticks'))
+SlopeList = []
 h = 0.001
+a = IntervalBeg
 while a <= IntervalEnd:
     x = a + h
     f1 = eval(function)
@@ -20,10 +20,10 @@ while a <= IntervalEnd:
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
     print(SymDif)
-    SymDifXList.append(SymDif)
-    a = a + tick
-    
-    
+    SlopeList.append(SymDif)
+    a += tick
+
+print(SlopeList)
 
 """x = a + h
 f1 = eval(function)
