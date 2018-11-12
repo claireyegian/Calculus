@@ -28,11 +28,10 @@ print(NumXVals)
 loc = 0
 while loc <= (NumXVals - 2):
     Quotient = SlopeList[loc]/SlopeList[loc+1]
-    loc += 1
     if Quotient > 0:
         pass
     elif Quotient <= 0:
-        print(Quotient)
+        print('There is an extreme around x='+ (IntervalBeg + (tick*(loc)+tick*(loc+1))/2))
     loc += 1
 
 """x = a + h
