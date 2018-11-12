@@ -20,8 +20,8 @@ while a <= IntervalEnd:
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
     print(SymDif)
-
     SymDifXList.append(SymDif)
+    a = a + tick
     
     
 
