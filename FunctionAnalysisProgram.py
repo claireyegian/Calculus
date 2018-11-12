@@ -35,10 +35,3 @@ while loc <= (NumXVals - 2):
         elif Quotient <= 0:
             print('There is an extreme around x='+ str(IntervalBeg + (tick*(loc)+tick*(loc+1))/2))
     loc += 1
-
-"""x = a + h
-f1 = eval(function)
-x = a - h
-f2 = eval(function)
-SymDif = (f1 - f2)/(2*h)
-print(SymDif)"""
