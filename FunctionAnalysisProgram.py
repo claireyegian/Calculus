@@ -10,15 +10,24 @@ IntervalEnd = float(input('Enter the end of the interval'))
 
 #FIX VOCAB!!!
 tick = input('Enter the distance between ticks')
-TickList = []
+SymDifXList = []
 a = IntervalBeg
-while a <= IntervalEnd:
-    
-a = 2
 h = 0.001
-x = a + h
+while a <= IntervalEnd:
+    x = a + h
+    f1 = eval(function)
+    x = a - h
+    f2 = eval(function)
+    SymDif = (f1 - f2)/(2*h)
+    print(SymDif)
+
+    SymDifXList.append(SymDif)
+    
+    
+
+"""x = a + h
 f1 = eval(function)
 x = a - h
 f2 = eval(function)
 SymDif = (f1 - f2)/(2*h)
-print(SymDif)
+print(SymDif)"""
