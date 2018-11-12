@@ -26,10 +26,9 @@ print(SlopeList)
 NumXVals = len(SlopeList)
 print(NumXVals)
 loc = 0
-print(SlopeList[loc])
-print(SlopeList[loc+1])
-while loc <= (NumXVals - 1):
+while loc <= (NumXVals - 2):
     Quotient = SlopeList[loc]/SlopeList[loc+1]
+    loc += 1
     if Quotient > 0:
         pass
     elif Quotient <= 0:
