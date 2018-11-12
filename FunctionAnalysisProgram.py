@@ -19,7 +19,6 @@ while a <= IntervalEnd:
     x = a - h
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
-    print(SymDif)
     SlopeList.append(SymDif)
     a += tick
 
