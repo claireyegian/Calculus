@@ -10,6 +10,8 @@ IntervalEnd = float(input('Enter the end of the interval'))
 
 #FIX VOCAB!!!
 tick = float(input('Enter the distance between ticks'))
+
+#Takes symmetric difference quotient to take the derivative at each designated x value
 SlopeList = []
 h = 0.001
 a = IntervalBeg
@@ -22,16 +24,16 @@ while a <= IntervalEnd:
     SlopeList.append(SymDif)
     a += tick
 
-print(SlopeList)
+#Finds extreme values
 NumXVals = len(SlopeList)
-print(NumXVals)
 loc = 0
 while loc <= (NumXVals - 2):
-    Quotient = SlopeList[loc]/SlopeList[loc+1]
-    if Quotient > 0:
-        pass
-    elif Quotient <= 0:
-        print('There is an extreme around x='+ (IntervalBeg + (tick*(loc)+tick*(loc+1))/2))
+    if SlopeList[loc+1] =! 0:
+        Quotient = SlopeList[loc]/SlopeList[loc+1]
+        if Quotient > 0:
+            pass
+        elif Quotient <= 0:
+            print('There is an extreme around x='+ str(IntervalBeg + (tick*(loc)+tick*(loc+1))/2))
     loc += 1
 
 """x = a + h
