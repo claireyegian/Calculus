@@ -4,12 +4,10 @@
 
 from math import log10, sin
 
-function = input('Enter a function')
-IntervalBeg = float(input('Enter the begining of the interval'))
-IntervalEnd = float(input('Enter the end of the interval'))
-
-#FIX VOCAB!!!
-step = float(input('Enter the step'))
+function = input('Enter a function: ')
+IntervalBeg = float(input('Enter the begining of the interval: '))
+IntervalEnd = float(input('Enter the end of the interval: '))
+step = float(input('Enter the step: '))
 
 #Takes symmetric difference quotient to take the derivative at each designated x value
 SlopeList = []
@@ -67,4 +65,4 @@ print(ExtremaList)
 
 #Finds increasing/decreasing
 if SlopeList[0] > 0:
-    pass
+    print('The function is increasing from ['+str(ExtremaList[0])+', '+str(ExtremaList[1])+']')
