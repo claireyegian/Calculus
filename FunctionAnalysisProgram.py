@@ -89,8 +89,7 @@ def IncDecIntervals(IncDecList, ExtremaList):
         index += 1
 IncDecIntervals(IncDecList, ExtremaList)
 
-print(SlopeList)
-
+#Takes the second derivative at each x value
 SlopeList2 = []
 a2 = IntervalBeg + 0.001
 while a2 <= IntervalEnd:
@@ -99,10 +98,15 @@ while a2 <= IntervalEnd:
     x = a2 - h
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
-    SlopeList.append(SymDif)
+    SlopeList2.append(SymDif)
     a2 += step
-    
-    
+SecondDeriv = []
+i = 0
+while i < NumVals:
+    slope = (SlopeList[0]+SlopeList2[0])/0.001
+    SecondDeriv.append(slope)
+    i += 1
+print(SecondDeriv)
     
     
     
