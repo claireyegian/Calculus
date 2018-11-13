@@ -30,6 +30,10 @@ ExtremaList = []
 print('There is an extreme around x='+str(IntervalBeg))
 ExtremaList.append(IntervalBeg)
 loc = 0
+
+def FindX(loc):
+    return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
+
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
@@ -59,10 +63,6 @@ while loc <= (NumXVals - 2):
     loc += 1
 print('There is an extreme around x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
-
-def FindX(loc):
-    return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
-
 print(ExtremaList)
 
 #Finds increasing/decreasing
