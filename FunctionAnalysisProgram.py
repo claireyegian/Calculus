@@ -68,7 +68,7 @@ Runs = 0
 while Runs <= (NumExtrema-2):
     if SlopeList[Runs] > 0:
         print('The function is increasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
-    elif SlopeList[Runs] < 0:
+    if SlopeList[Runs] < 0:
         print('The function is decreasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
     Runs += 1
     
