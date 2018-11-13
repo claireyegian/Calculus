@@ -32,15 +32,15 @@ loc = 0
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
-            print('min')
-        elif SlopesList[loc+1] < 0:
+            print('There is a local maxiumum around x='+ str(SlopeList[loc]))
+        elif SlopeList[loc+1] < 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
     elif SlopeList[loc] > 0:
         if SlopeList[loc+1] < 0:
             print('max')
-        elif SlopesList[loc+1] > 0:
+        elif SlopeList[loc+1] > 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
