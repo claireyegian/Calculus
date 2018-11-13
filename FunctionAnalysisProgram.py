@@ -67,20 +67,27 @@ NumExtrema = len(ExtremaList)
 IncDecList = []
 if SlopeList[0] > 0:
     Runs = 1
-    while Runs <= NumExtrema:
+    while Runs <= (NumExtrema-1):
         if Runs%2 != 0:
             IncDecList.append('increasing')
         elif Runs%2 == 0:
             IncDecList.append('decreasing')
+        Runs += 1
 elif SlopeList[0] < 0:
     Runs = 1
-    while Runs <= NumExtrema:
+    while Runs <= (NumExtrema-1):
         if Runs%2 != 0:
             IncDecList.append('decreasing')
         elif Runs%2 == 0:
             IncDecList.append('increasing')
+        Runs += 1
+def IncDecIntervals(IncDecList, ExtremaList):
+    IncDecListLen = len(IncDecList)
+    index = 0
+    while index < (IncDecListLen-1):
+        print('The function is'+IncDecList[index]+'on the interval ['+str(ExtremaList[index])+', '+str(ExtremaList[index+1])+'].')
+        index += 1
     
-print(IncDecList)
 """Runs = 0
 while Runs <= (NumExtrema-2):
     if SlopeList[Runs] > 0:
