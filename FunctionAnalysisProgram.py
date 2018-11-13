@@ -102,11 +102,11 @@ while a2 <= IntervalEnd:
     a2 += step
 SecondDeriv = []
 i = 0
-while i < NumVals:
-    slope = (SlopeList[0]+SlopeList2[0])/0.001
+while i < NumXVals:
+    slope = (SlopeList2[0]-SlopeList[0])/0.001
     SecondDeriv.append(slope)
     i += 1
-print(SecondDeriv)
+
     
     
     
