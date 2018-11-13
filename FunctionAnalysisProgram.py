@@ -89,15 +89,18 @@ def IncDecIntervals(IncDecList, ExtremaList):
         index += 1
 IncDecIntervals(IncDecList, ExtremaList)
 
+print(SlopeList)
+
 SlopeList2 = []
-for slope in SlopeList:
-    x = slope + 0.001
+a2 = IntervalBeg + 0.001
+while a2 <= IntervalEnd:
+    x = a2 + h
     f1 = eval(function)
-    x = slope - 0.001
+    x = a2 - h
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
-    SlopeList2.append(SymDif)
-    
+    SlopeList.append(SymDif)
+    a2 += step
     
     
     
