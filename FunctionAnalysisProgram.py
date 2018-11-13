@@ -33,7 +33,7 @@ loc = 0
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
-            print('There is a local maxiumum around x='+ str(SlopeList[loc]))
+            print('There is a local maxiumum around x='+ str(FindX(loc)))
             ExtremaList.append(SlopeList[loc])
         elif SlopeList[loc+1] < 0:
             pass
@@ -59,6 +59,10 @@ while loc <= (NumXVals - 2):
     loc += 1
 print('There is an extreme around x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
+
+def FindX(loc):
+    return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
+
 print(ExtremaList)
 
 #Finds increasing/decreasing
