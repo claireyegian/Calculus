@@ -63,13 +63,15 @@ print('There is an extreme around x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
 
 #Finds increasing/decreasing
-Run = 0
-for extreme in ExtremaList:
-    if SlopeList[Run] > 0:
-        print('The function is increasing from ['+str(ExtremaList[Run])+', '+str(ExtremaList[Run+1])+']')
-    elif SlopeList[Run] < 0:
-        print('The function is decreasing from ['+str(ExtremaList[Run])+', '+str(ExtremaList[Run+1])+']')
-    Run += 1
+NumExtrema = len(ExtremaList)
+Runs = 0
+while Runs <= (NumExtrema-2):
+    if SlopeList[Runs] > 0:
+        print('The function is increasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
+    elif SlopeList[Runs] < 0:
+        print('The function is decreasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
+    Runs += 1
+    
     
     
     
