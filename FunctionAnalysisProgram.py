@@ -64,13 +64,30 @@ ExtremaList.append(IntervalEnd)
 
 #Finds increasing/decreasing
 NumExtrema = len(ExtremaList)
-Runs = 0
+IncDecList = []
+if SlopeList[0] > 0:
+    Runs = 1
+    while Runs <= NumExtrema:
+        if Runs%2 != 0:
+            IncDecList.append('increasing')
+        elif Runs%2 == 0:
+            IncDecList.append('decreasing')
+elif SlopeList[0] < 0:
+    Runs = 1
+    while Runs <= NumExtrema:
+        if Runs%2 != 0:
+            IncDecList.append('decreasing')
+        elif Runs%2 == 0:
+            IncDecList.append('increasing')
+    
+print(IncDecList)
+"""Runs = 0
 while Runs <= (NumExtrema-2):
     if SlopeList[Runs] > 0:
         print('The function is increasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
     if SlopeList[Runs] < 0:
         print('The function is decreasing from ['+str(ExtremaList[Runs])+', '+str(ExtremaList[Runs+1])+']')
-    Runs += 1
+    Runs += 1"""
     
     
     
