@@ -38,26 +38,26 @@ while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
             print('There is a local maxiumum around x='+ str(FindX(loc)))
-            ExtremaList.append(SlopeList[loc])
+            ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
     elif SlopeList[loc] > 0:
         if SlopeList[loc+1] < 0:
-            print('There is a local minimum around x='+ str(SlopeList[loc]))
-            ExtremaList.append(SlopeList[loc])
+            print('There is a local minimum around x='+ str(FindX(loc)))
+            ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] > 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
     elif SlopeList[loc] == 0:
         if SlopeList[loc+1] > 0:
-            print('There is a local minimum around x='+ str(SlopeList[loc]))
-            ExtremaList.append(SlopeList[loc])
+            print('There is a local minimum around x='+ str(FindX(loc)))
+            ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
-            print('There is a local maxiumum around x='+ str(SlopeList[loc]))
-            ExtremaList.append(SlopeList[loc])
+            print('There is a local maxiumum around x='+ str(FindX(loc)))
+            ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] == 0:
             pass
     loc += 1
