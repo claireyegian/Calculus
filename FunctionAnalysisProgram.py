@@ -104,8 +104,12 @@ while i < NumXVals:
     slope = (SlopeList2[0]-SlopeList[0])/0.001
     SecondDeriv.append(slope)
     i += 1
+print(SlopeList)
+print(SlopeList2)
+print(SecondDeriv)
+print(len(SecondDeriv))
 
-#Finds inflection points
+"""#Finds inflection points
 Num2DerivVals = len(SecondDeriv)
 InflecList = []
 k = 0
@@ -114,7 +118,6 @@ def Find2DX(k):
 while k <= (Num2DerivVals - 2):
     if SecondDeriv[k] < 0:
         if SecondDeriv[k+1] > 0:
-            print('There is a local minimum around x='+ str(Find2DX(k)))
             InflecList.append(Find2DX(k))
         elif SecondDeriv[k+1] < 0:
             pass
@@ -122,7 +125,6 @@ while k <= (Num2DerivVals - 2):
             pass
     elif SecondDeriv[k] > 0:
         if SecondDeriv[k+1] < 0:
-            print('There is a local maximum around x='+ str(Find2DX(k)))
             InflecList.append(Find2DX(k))
         elif SecondDeriv[k+1] > 0:
             pass
@@ -130,14 +132,13 @@ while k <= (Num2DerivVals - 2):
             pass
     elif SecondDeriv[k] == 0:
         if SecondDeriv[k+1] > 0:
-            print('There is a local minimum around x='+ str(Find2DX(k)))
             InflecList.append(Find2DX(k))
         elif SecondDeriv[k+1] < 0:
-            print('There is a local maxiumum around x='+ str(Find2DX(k)))
             InflecList.append(Find2DX(k))
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
+print(InflecList)"""
 
     
     
