@@ -35,3 +35,5 @@ while loc <= (NumXVals - 2):
         elif Quotient <= 0:
             print('There is an extreme around x='+ str(IntervalBeg + (tick*(loc)+tick*(loc+1))/2))
     loc += 1
+
+
