@@ -28,10 +28,8 @@ ExtremaList = []
 print('There is an extreme around x='+str(IntervalBeg))
 ExtremaList.append(IntervalBeg)
 loc = 0
-
 def FindX(loc):
     return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
-
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
@@ -106,6 +104,40 @@ while i < NumXVals:
     slope = (SlopeList2[0]-SlopeList[0])/0.001
     SecondDeriv.append(slope)
     i += 1
+
+#Finds inflection points
+Num2DerivVals = len(SecondDeriv)
+InflecList = []
+k = 0
+def Find2DX(k):
+    return(IntervalBeg + (step*(k)+step*(k+1))/2)
+while k <= (Num2DerivVals - 2):
+    if SecondDeriv[k] < 0:
+        if SecondDeriv[k+1] > 0:
+            print('There is a local minimum around x='+ str(Find2DX(k)))
+            InflecList.append(Find2DX(k))
+        elif SecondDeriv[k+1] < 0:
+            pass
+        elif SecondDeriv[k+1] == 0:
+            pass
+    elif SecondDeriv[k] > 0:
+        if SecondDeriv[k+1] < 0:
+            print('There is a local maximum around x='+ str(Find2DX(k)))
+            InflecList.append(Find2DX(k))
+        elif SecondDeriv[k+1] > 0:
+            pass
+        elif SecondDeriv[k+1] == 0:
+            pass
+    elif SecondDeriv[k] == 0:
+        if SecondDeriv[k+1] > 0:
+            print('There is a local minimum around x='+ str(Find2DX(k)))
+            InflecList.append(Find2DX(k))
+        elif SecondDeriv[k+1] < 0:
+            print('There is a local maxiumum around x='+ str(Find2DX(k)))
+            InflecList.append(Find2DX(k))
+        elif SecondDeriv[k+1] == 0:
+            pass
+    k += 1
 
     
     
