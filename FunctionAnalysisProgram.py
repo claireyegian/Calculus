@@ -28,39 +28,38 @@ while a <= IntervalEnd:
 NumXVals = len(SlopeList)
 ExtremaList = []
 print('There is an extreme around x='+str(IntervalBeg))
+ExtremaList.append(IntervalBeg)
 loc = 0
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
             print('There is a local maxiumum around x='+ str(SlopeList[loc]))
+            ExtremaList.append(SlopeList[loc])
         elif SlopeList[loc+1] < 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
     elif SlopeList[loc] > 0:
         if SlopeList[loc+1] < 0:
-            print('max')
+            print('There is a local minimum around x='+ str(SlopeList[loc]))
+            ExtremaList.append(SlopeList[loc])
         elif SlopeList[loc+1] > 0:
             pass
         elif SlopeList[loc+1] == 0:
             pass
     elif SlopeList[loc] == 0:
         if SlopeList[loc+1] > 0:
-            print('min')
+            print('There is a local minimum around x='+ str(SlopeList[loc]))
+            ExtremaList.append(SlopeList[loc])
         elif SlopeList[loc+1] < 0:
-            print('max')
+            print('There is a local maxiumum around x='+ str(SlopeList[loc]))
+            ExtremaList.append(SlopeList[loc])
         elif SlopeList[loc+1] == 0:
             pass
-    """if SlopeList[loc+1] != 0:
-        Quotient = SlopeList[loc]/SlopeList[loc+1]
-        if Quotient > 0:
-            pass
-        elif Quotient <= 0:
-            Extrema = (IntervalBeg + (step*(loc)+step*(loc+1))/2)
-            ExtremaList.append(Extrema)
-            print('There is an extreme around x='+ str(Extrema))"""
     loc += 1
 print('There is an extreme around x='+str(IntervalEnd))
+ExtremaList.append(IntervalEnd)
+print(ExtremaList)
 
 #Finds increasing/decreasing
 if SlopeList[0] > 0:
