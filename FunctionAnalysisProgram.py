@@ -81,6 +81,9 @@ elif SlopeList[0] < 0:
         elif Runs%2 == 0:
             IncDecList.append('increasing')
         Runs += 1
+
+IncDecIntervals(IncDecList, ExtremaList)
+
 def IncDecIntervals(IncDecList, ExtremaList):
     IncDecListLen = len(IncDecList)
     index = 0
