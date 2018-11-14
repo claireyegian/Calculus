@@ -100,7 +100,7 @@ while a2 <= IntervalEnd:
     a2 += step
 SecondDeriv = []
 i = 0
-while i < NumXVals:
+while i < (NumXVals-1):
     slope = (SlopeList2[i]-SlopeList[i])/0.001
     SecondDeriv.append(slope)
     i += 1
@@ -110,7 +110,7 @@ print(SecondDeriv)
 print(len(SecondDeriv))
 
 #Finds inflection points
-"""Num2DerivVals = len(SecondDeriv)
+Num2DerivVals = len(SecondDeriv)
 InflecList = []
 k = 0
 def Find2DX(k):
@@ -138,7 +138,7 @@ while k <= (Num2DerivVals - 2):
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
-print(InflecList)"""
+print(InflecList)
 
     
     
