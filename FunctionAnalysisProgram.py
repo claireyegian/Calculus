@@ -97,7 +97,7 @@ while a2 <= IntervalEnd:
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
     SlopeList2.append(SymDif)
-    a2 += step
+    a2 += 1
 SecondDeriv = []
 i = 0
 while i < NumXVals:
@@ -109,8 +109,8 @@ print(SlopeList2)
 print(SecondDeriv)
 print(len(SecondDeriv))
 
-"""#Finds inflection points
-Num2DerivVals = len(SecondDeriv)
+#Finds inflection points
+"""Num2DerivVals = len(SecondDeriv)
 InflecList = []
 k = 0
 def Find2DX(k):
