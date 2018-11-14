@@ -104,18 +104,14 @@ while i < (NumXVals-1):
     slope = (SlopeList2[i]-SlopeList[i])/0.001
     SecondDeriv.append(slope)
     i += 1
-print(SlopeList)
-print(SlopeList2)
-print(SecondDeriv)
-print(len(SecondDeriv))
 
 #Finds inflection points
+def Find2DX(k):
+    return(IntervalBeg + (step*(k)+step*(k+1))/2)
 Num2DerivVals = len(SecondDeriv)
 InflecList = []
 k = 0
-def Find2DX(k):
-    return(IntervalBeg + (step*(k)+step*(k+1))/2)
-while k <= (Num2DerivVals - 2):
+while k < (Num2DerivVals - 1):
     if SecondDeriv[k] < 0:
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
@@ -140,8 +136,31 @@ while k <= (Num2DerivVals - 2):
     k += 1
 print(InflecList)
 
-    
-    
+NumInflec = len(InflecList)
+ConUpDownList = []
+if SecondDeriv[0] > 0:
+    Runs = 1
+    while Runs <= (NumInflec-1):
+        if Runs%2 != 0:
+            ConUpDownList.append('concave up')
+        elif Runs%2 == 0:
+            ConUpDownList.append('concave down')
+        Runs += 1
+elif SecondDeriv[0] < 0:
+    Runs = 1
+    while Runs <= (NumInflec-1):
+        if Runs%2 != 0:
+            ConUpDownList.append('concave up')
+        elif Runs%2 == 0:
+            ConUpDownList.append('concave down')
+        Runs += 1
+def ConIntervals(ConUpDownList, InflecList):
+    CUDLLen = len(ConUpDownList)
+    index = 0
+    while index < (CUDLLen):
+        print('The function is '+ConUpDownList[index]+' on the interval ['+str(InflecList[index])+', '+str(InflecList[index+1])+'].')
+        index += 1
+ConIntervals(ConUpDownList, InflecList)
     
     
     
