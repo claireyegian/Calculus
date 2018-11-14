@@ -97,11 +97,11 @@ while a2 <= IntervalEnd:
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
     SlopeList2.append(SymDif)
-    a2 += 1
+    a2 += step
 SecondDeriv = []
 i = 0
 while i < NumXVals:
-    slope = (SlopeList2[0]-SlopeList[0])/0.001
+    slope = (SlopeList2[i]-SlopeList[i])/0.001
     SecondDeriv.append(slope)
     i += 1
 print(SlopeList)
