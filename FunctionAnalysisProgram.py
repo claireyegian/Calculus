@@ -115,6 +115,7 @@ while k < (Num2DerivVals - 1):
     if SecondDeriv[k] < 0:
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
+            print('There is an inflection point at x='+str(round(Find2DX(k),5)))
         elif SecondDeriv[k+1] < 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -122,6 +123,7 @@ while k < (Num2DerivVals - 1):
     elif SecondDeriv[k] > 0:
         if SecondDeriv[k+1] < 0:
             InflecList.append(Find2DX(k))
+            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
         elif SecondDeriv[k+1] > 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -129,12 +131,13 @@ while k < (Num2DerivVals - 1):
     elif SecondDeriv[k] == 0:
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
+            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
         elif SecondDeriv[k+1] < 0:
             InflecList.append(Find2DX(k))
+            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
-print(InflecList)
 
 NumInflec = len(InflecList)
 ConUpDownList = []
