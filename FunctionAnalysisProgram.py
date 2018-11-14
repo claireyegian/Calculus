@@ -33,7 +33,7 @@ def FindX(loc):
 while loc <= (NumXVals - 2):
     if SlopeList[loc] < 0:
         if SlopeList[loc+1] > 0:
-            print('There is a local minimum around x='+ str(FindX(loc)))
+            print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
             pass
@@ -41,7 +41,7 @@ while loc <= (NumXVals - 2):
             pass
     elif SlopeList[loc] > 0:
         if SlopeList[loc+1] < 0:
-            print('There is a local maximum around x='+ str(FindX(loc)))
+            print('There is a local maximum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] > 0:
             pass
@@ -49,10 +49,10 @@ while loc <= (NumXVals - 2):
             pass
     elif SlopeList[loc] == 0:
         if SlopeList[loc+1] > 0:
-            print('There is a local minimum around x='+ str(FindX(loc)))
+            print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
-            print('There is a local maxiumum around x='+ str(FindX(loc)))
+            print('There is a local maxiumum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
         elif SlopeList[loc+1] == 0:
             pass
@@ -83,7 +83,7 @@ def IncDecIntervals(IncDecList, ExtremaList):
     IncDecListLen = len(IncDecList)
     index = 0
     while index < (IncDecListLen):
-        print('The function is '+IncDecList[index]+' on the interval ['+str(ExtremaList[index])+', '+str(ExtremaList[index+1])+'].')
+        print('The function is '+IncDecList[index]+' on the interval ['+str(round(ExtremaList[index],4))+', '+str(round(ExtremaList[index+1],4))+'].')
         index += 1
 IncDecIntervals(IncDecList, ExtremaList)
 
@@ -115,7 +115,7 @@ while k < (Num2DerivVals - 1):
     if SecondDeriv[k] < 0:
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),5)))
+            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] < 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -123,7 +123,7 @@ while k < (Num2DerivVals - 1):
     elif SecondDeriv[k] > 0:
         if SecondDeriv[k+1] < 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
+            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] > 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -131,10 +131,10 @@ while k < (Num2DerivVals - 1):
     elif SecondDeriv[k] == 0:
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
+            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] < 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),3)))
+            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
@@ -161,7 +161,7 @@ def ConIntervals(ConUpDownList, InflecList):
     CUDLLen = len(ConUpDownList)
     index = 0
     while index < (CUDLLen):
-        print('The function is '+ConUpDownList[index]+' on the interval ['+str(InflecList[index])+', '+str(InflecList[index+1])+'].')
+        print('The function is '+ConUpDownList[index]+' on the interval ['+str(round(InflecList[index],4))+', '+str(round(InflecList[index+1],4))+'].')
         index += 1
 ConIntervals(ConUpDownList, InflecList)
     
