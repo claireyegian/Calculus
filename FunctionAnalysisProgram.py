@@ -35,6 +35,7 @@ elif y1 < y2:
     print('There is a minimum at x='+str(IntervalBeg))
 NumXVals = len(SlopeList)
 ExtremaList = [IntervalBeg]
+LocList = [y1]
 loc = 0
 def FindX(loc):
     return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
@@ -43,6 +44,7 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
+            LocList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
             pass
         elif SlopeList[loc+1] == 0:
@@ -51,6 +53,7 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] < 0:
             print('There is a local maximum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
+            LocList.append(FindX(loc))
         elif SlopeList[loc+1] > 0:
             pass
         elif SlopeList[loc+1] == 0:
@@ -59,9 +62,11 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
+            LocList.append(FindX(loc))
         elif SlopeList[loc+1] < 0:
             print('There is a local maxiumum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
+            LocList.append(FindX(loc))
         elif SlopeList[loc+1] == 0:
             pass
     loc += 1
@@ -74,7 +79,14 @@ if y3 > y4:
 elif y3 < y4:
     print('There is a maxiumum at x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
-print('The absolute maxiumum is at '+str(round(FindX(max(ExtremaList)),4)))
+LocList.append(y4)
+NumMax = 0
+for item in LockList:
+    if item == max(LocList):
+        NumMax += 1
+
+print('There is an absolute maxiumum at x='+str(round(max(LocList),4)))
+print('There is an absolute minimum at x='+str(round(min(LocList),4)))
 
 #Finds increasing/decreasing
 NumExtrema = len(ExtremaList)
