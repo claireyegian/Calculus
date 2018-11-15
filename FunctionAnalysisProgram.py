@@ -139,8 +139,6 @@ while k < (Num2DerivVals - 1):
             pass
     k += 1
 
-print(SecondDeriv)
-
 #Finds concave up/concave down
 NumInflec = len(InflecList)
 ConUpDownList = []
