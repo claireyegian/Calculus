@@ -5,12 +5,15 @@
 from math import sin,cos, tan, acos, asin, atan, e, pi, log, log10, sqrt
 
 function = input('Enter a function: ')
-IntervalBeg = float(input('Enter the begining of the interval: '))
+IntervalBeg = float(input('Enter the begining of an interval on which the function is continuous: '))
 IntervalEnd = float(input('Enter the end of the interval: '))
 step = 0.1
 print(' ')
 
-#Takes symmetric difference quotient to take the derivative at each designated x value
+
+
+
+#Takes symmetric difference quotient to calculate the derivative at each designated x value
 SlopeList = []
 h = 0.001
 a = IntervalBeg
@@ -20,12 +23,14 @@ while a <= IntervalEnd:
     x = a - h
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
-    if SymDif != 'nan':
-        SlopeList.append(SymDif)
+    SlopeList.append(SymDif) #Adds all numerical derivatives to a list so they can be kept track of
     a += step
 
+
+
+
 #Finds extreme values
-x = IntervalBeg
+x = IntervalBeg #Dermines if the first endpoint is a maximum or a minium. If the second y value is higher than the endpoint, it is a min. If the second is lower, it's a max.
 y1 = eval(function)
 x = IntervalBeg + step
 y2 = eval(function)
@@ -33,14 +38,15 @@ if y1 > y2:
     print('There is a local maxiumum at x='+str(IntervalBeg))
 elif y1 < y2:
     print('There is a local minimum at x='+str(IntervalBeg))
+
 NumXVals = len(SlopeList)
 ExtremaList = [IntervalBeg]
 yList = [y1]
 loc = 0
 def FindX(loc):
     return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
-while loc <= (NumXVals - 2):
-    if SlopeList[loc] < 0:
+while loc <= (NumXVals - 2): #Runs through all of the recorded numerical derivatives
+    if SlopeList[loc] < 0: #If the a given numerical derivative is negative, and the next recorded derivative is positive, there is an extreme.
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
@@ -50,7 +56,7 @@ while loc <= (NumXVals - 2):
             pass
         elif SlopeList[loc+1] == 0:
             pass
-    elif SlopeList[loc] > 0:
+    elif SlopeList[loc] > 0: #If the a given numerical derivative is positive, and the next recorded derivative is negative, there is an extreme.
         if SlopeList[loc+1] < 0:
             print('There is a local maximum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
@@ -60,21 +66,9 @@ while loc <= (NumXVals - 2):
             pass
         elif SlopeList[loc+1] == 0:
             pass
-    elif SlopeList[loc] == 0:
-        if SlopeList[loc+1] > 0:
-            print('There is a local minimum around x='+ str(round(FindX(loc),4)))
-            ExtremaList.append(FindX(loc))
-            x = FindX(loc)
-            yList.append(eval(function))
-        elif SlopeList[loc+1] < 0:
-            print('There is a local maxiumum around x='+ str(round(FindX(loc),4)))
-            ExtremaList.append(FindX(loc))
-            x = FindX(loc)
-            yList.append(eval(function))
-        elif SlopeList[loc+1] == 0:
-            pass
     loc += 1
-x = IntervalEnd - step
+
+x = IntervalEnd - step #Dermines if the last endpoint is a maximum or a minium. If the y value before it is higher than the endpoint, it is a min. If the y value is lower, it's a max.
 y3 = eval(function)
 x = IntervalEnd
 y4 = eval(function)
@@ -84,17 +78,18 @@ elif y3 < y4:
     print('There is a local maxiumum at x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
 yList.append(y4)
-NumMax = 0
+
+#HAAAAALLLPPPPPPPP
+"""NumMax = 0 #Makes sure there's only one absolute
 NumMin = 0
 for item in yList:
     if round(item,2) == round(max(yList),2):
         NumMax += 1
     if round(item,2) == round(min(yList),2):
-        NumMin += 1
-if NumMax == 1:
-    print('There is an absolute maxiumum at y='+str(round(max(yList),4)))
-if NumMin == 1:
-    print('There is an absolute minimum at y='+str(round(min(yList),4)))
+        NumMin += 1"""
+print('The absolute maxiumum is y='+str(round(max(yList),4)))
+print('The absolute minimum is y='+str(round(min(yList),4)))
+
 
 
 
@@ -125,6 +120,9 @@ def IncDecIntervals(IncDecList, ExtremaList):
         index += 1
 IncDecIntervals(IncDecList, ExtremaList)
 
+
+
+
 #Takes the second derivative at each x value
 SlopeList2 = []
 a2 = IntervalBeg + 0.001
@@ -142,6 +140,10 @@ while i < (NumXVals-1):
     slope = (SlopeList2[i]-SlopeList[i])/0.001
     SecondDeriv.append(slope)
     i += 1
+
+
+
+
 
 #Finds inflection points
 def Find2DX(k):
@@ -167,6 +169,12 @@ while k < (Num2DerivVals - 1):
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
+if len(InflecList) == 0:
+    print('There are no points of inflection')
+
+
+
+
 
 #Finds concave up/concave down
 NumInflec = len(InflecList)
