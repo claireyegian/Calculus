@@ -44,7 +44,7 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            x = loc
+            x = FindX(loc)
             yList.append(eval(function))
         elif SlopeList[loc+1] < 0:
             pass
@@ -54,7 +54,7 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] < 0:
             print('There is a local maximum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            x = loc
+            x = FindX(loc)
             yList.append(eval(function))
         elif SlopeList[loc+1] > 0:
             pass
@@ -64,12 +64,12 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            x = loc
+            x = FindX(loc)
             yList.append(eval(function))
         elif SlopeList[loc+1] < 0:
             print('There is a local maxiumum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            x = loc
+            x = FindX(loc)
             yList.append(eval(function))
         elif SlopeList[loc+1] == 0:
             pass
@@ -85,14 +85,16 @@ elif y3 < y4:
 ExtremaList.append(IntervalEnd)
 yList.append(y4)
 NumMax = 0
-AbsMax = max(yList)
+NumMin = 0
 for item in yList:
-    if item == AbsMax:
+    if round(item,2) == round(max(yList),2):
         NumMax += 1
-print(yList)
-print(NumMax)
-print('There is an absolute maxiumum at x='+str(round(max(LocList),4)))
-print('There is an absolute minimum at x='+str(round(min(LocList),4)))
+    if round(item,2) == round(min(yList),2):
+        NumMin += 1
+if NumMax == 1:
+    print('There is an absolute maxiumum at x='+str(round(max(LocList),4)))
+if NumMin == 1:
+    print('There is an absolute minimum at x='+str(round(min(LocList),4)))
 
 #Finds increasing/decreasing
 NumExtrema = len(ExtremaList)
