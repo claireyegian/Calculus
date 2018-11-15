@@ -139,6 +139,8 @@ while k < (Num2DerivVals - 1):
             pass
     k += 1
 
+print(SecondDeriv)
+
 #Finds concave up/concave down
 NumInflec = len(InflecList)
 ConUpDownList = []
@@ -159,13 +161,9 @@ elif SecondDeriv[0] < 0:
             ConUpDownList.append('concave down')
         Runs += 1
 if SecondDeriv[0] > 0:
-    print('The function is concave up on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4)))
+    print('!!!The function is concave up on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4))+'].')
 elif SecondDeriv[0] > 0:
-    print('The function is concave down on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4)))
-if SecondDeriv[-1] > 0:
-    print('The function is concave up on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4)))
-elif SecondDeriv[-1] < 0:
-    print('The function is concave down on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4)))
+    print('!!!The function is concave down on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4))+'].')
 def ConIntervals(ConUpDownList, InflecList):
     CUDLLen = len(ConUpDownList)
     index = 0
@@ -173,6 +171,10 @@ def ConIntervals(ConUpDownList, InflecList):
         print('The function is '+ConUpDownList[index]+' on the interval ['+str(round(InflecList[index],4))+', '+str(round(InflecList[index+1],4))+'].')
         index += 1
 ConIntervals(ConUpDownList, InflecList)
+if SecondDeriv[-1] > 0:
+    print('!!!The function is concave up on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4))+'].')
+elif SecondDeriv[-1] < 0:
+    print('!!!The function is concave down on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4))+'].')
     
     
     
