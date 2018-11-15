@@ -174,6 +174,13 @@ if NumInflec != 0:
         print('The function is concave up on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4))+'].')
     elif SecondDeriv[-1] < 0:
         print('The function is concave down on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4))+'].')
+elif NumInflec == 0:
+    if SecondDeriv[0] > 0:
+        print('The function is concave up on the interval ['+str(round(IntervalBeg,4))+','+str(round(IntervalEnd,4))+'].')
+    elif SecondDeriv[0] < 0:
+        print('The function is concave down on the interval ['+str(round(IntervalBeg,4))+','+str(round(IntervalEnd,4))+'].')
+    elif SecondDeriv[0] == 0:
+        print('The function has no concavity.')
 
 
 
