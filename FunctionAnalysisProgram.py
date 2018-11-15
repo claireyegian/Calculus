@@ -7,8 +7,7 @@ from math import sin,cos, tan, acos, asin, atan, e, pi, log, log10, sqrt
 function = input('Enter a function: ')
 IntervalBeg = float(input('Enter the begining of the interval: '))
 IntervalEnd = float(input('Enter the end of the interval: '))
-step = float(input('Enter the step: '))
-
+step = 0.1
 print(' ')
 
 #Takes symmetric difference quotient to take the derivative at each designated x value
@@ -21,7 +20,8 @@ while a <= IntervalEnd:
     x = a - h
     f2 = eval(function)
     SymDif = (f1 - f2)/(2*h)
-    SlopeList.append(SymDif)
+    if SymDif != 'nan':
+        SlopeList.append(SymDif)
     a += step
 
 #Finds extreme values
@@ -92,9 +92,11 @@ for item in yList:
     if round(item,2) == round(min(yList),2):
         NumMin += 1
 if NumMax == 1:
-    print('There is an absolute maxiumum at x='+str(round(max(LocList),4)))
+    print('There is an absolute maxiumum at y='+str(round(max(yList),4)))
 if NumMin == 1:
-    print('There is an absolute minimum at x='+str(round(min(LocList),4)))
+    print('There is an absolute minimum at y='+str(round(min(yList),4)))
+
+
 
 #Finds increasing/decreasing
 NumExtrema = len(ExtremaList)
