@@ -139,24 +139,26 @@ while k < (Num2DerivVals - 1):
             pass
     k += 1
 
+#Finds concave up/concave down
 NumInflec = len(InflecList)
 ConUpDownList = []
 if SecondDeriv[0] > 0:
-    Runs = 1
-    while Runs <= (NumInflec-1):
+    Runs = 0
+    while Runs < (NumInflec-1):
         if Runs%2 != 0:
             ConUpDownList.append('concave up')
         elif Runs%2 == 0:
             ConUpDownList.append('concave down')
         Runs += 1
 elif SecondDeriv[0] < 0:
-    Runs = 1
-    while Runs <= (NumInflec-1):
+    Runs = 0
+    while Runs < (NumInflec-1):
         if Runs%2 != 0:
             ConUpDownList.append('concave up')
         elif Runs%2 == 0:
             ConUpDownList.append('concave down')
         Runs += 1
+
 def ConIntervals(ConUpDownList, InflecList):
     CUDLLen = len(ConUpDownList)
     index = 0
