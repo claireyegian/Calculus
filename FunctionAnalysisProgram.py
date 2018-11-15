@@ -162,6 +162,10 @@ if SecondDeriv[0] > 0:
     print('The function is concave up on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4)))
 elif SecondDeriv[0] > 0:
     print('The function is concave down on the interval ['+str(round(IntervalBeg,4))+','+str(round(InflecList[0],4)))
+if SecondDeriv[-1] > 0:
+    print('The function is concave up on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4)))
+elif SecondDeriv[-1] < 0:
+    print('The function is concave down on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4)))
 def ConIntervals(ConUpDownList, InflecList):
     CUDLLen = len(ConUpDownList)
     index = 0
