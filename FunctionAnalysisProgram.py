@@ -30,12 +30,12 @@ y1 = eval(function)
 x = IntervalBeg + step
 y2 = eval(function)
 if y1 > y2:
-    print('There is a maxiumum at x='+str(IntervalBeg))
+    print('There is a local maxiumum at x='+str(IntervalBeg))
 elif y1 < y2:
-    print('There is a minimum at x='+str(IntervalBeg))
+    print('There is a local minimum at x='+str(IntervalBeg))
 NumXVals = len(SlopeList)
 ExtremaList = [IntervalBeg]
-LocList = [y1]
+yList = [y1]
 loc = 0
 def FindX(loc):
     return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
@@ -44,7 +44,8 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            LocList.append(FindX(loc))
+            x = loc
+            yList.append(eval(function))
         elif SlopeList[loc+1] < 0:
             pass
         elif SlopeList[loc+1] == 0:
@@ -53,7 +54,8 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] < 0:
             print('There is a local maximum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            LocList.append(FindX(loc))
+            x = loc
+            yList.append(eval(function))
         elif SlopeList[loc+1] > 0:
             pass
         elif SlopeList[loc+1] == 0:
@@ -62,11 +64,13 @@ while loc <= (NumXVals - 2):
         if SlopeList[loc+1] > 0:
             print('There is a local minimum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            LocList.append(FindX(loc))
+            x = loc
+            yList.append(eval(function))
         elif SlopeList[loc+1] < 0:
             print('There is a local maxiumum around x='+ str(round(FindX(loc),4)))
             ExtremaList.append(FindX(loc))
-            LocList.append(FindX(loc))
+            x = loc
+            yList.append(eval(function))
         elif SlopeList[loc+1] == 0:
             pass
     loc += 1
@@ -75,16 +79,18 @@ y3 = eval(function)
 x = IntervalEnd
 y4 = eval(function)
 if y3 > y4:
-    print('There is a minimum at x='+str(IntervalEnd))
+    print('There is a local minimum at x='+str(IntervalEnd))
 elif y3 < y4:
-    print('There is a maxiumum at x='+str(IntervalEnd))
+    print('There is a local maxiumum at x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
-LocList.append(y4)
+yList.append(y4)
 NumMax = 0
-for item in LockList:
-    if item == max(LocList):
+AbsMax = max(yList)
+for item in yList:
+    if item == AbsMax:
         NumMax += 1
-
+print(yList)
+print(NumMax)
 print('There is an absolute maxiumum at x='+str(round(max(LocList),4)))
 print('There is an absolute minimum at x='+str(round(min(LocList),4)))
 
