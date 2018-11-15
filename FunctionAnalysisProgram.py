@@ -25,10 +25,16 @@ while a <= IntervalEnd:
     a += step
 
 #Finds extreme values
+x = IntervalBeg
+y1 = eval(function)
+x = IntervalBeg + step
+y2 = eval(function)
+if y1 > y2:
+    print('There is a maxiumum at x='+str(IntervalBeg))
+elif y1 < y2:
+    print('There is a minimum at x='+str(IntervalBeg))
 NumXVals = len(SlopeList)
-ExtremaList = []
-print('There is an extreme around x='+str(IntervalBeg))
-ExtremaList.append(IntervalBeg)
+ExtremaList = [IntervalBeg]
 loc = 0
 def FindX(loc):
     return(IntervalBeg + (step*(loc)+step*(loc+1))/2)
@@ -59,8 +65,16 @@ while loc <= (NumXVals - 2):
         elif SlopeList[loc+1] == 0:
             pass
     loc += 1
-print('There is an extreme around x='+str(IntervalEnd))
+x = IntervalEnd - step
+y3 = eval(function)
+x = IntervalEnd
+y4 = eval(function)
+if y3 > y4:
+    print('There is a minimum at x='+str(IntervalEnd))
+elif y3 < y4:
+    print('There is a maxiumum at x='+str(IntervalEnd))
 ExtremaList.append(IntervalEnd)
+print('The absolute maxiumum is at '+str(round(FindX(max(ExtremaList)),4)))
 
 #Finds increasing/decreasing
 NumExtrema = len(ExtremaList)
@@ -128,15 +142,6 @@ while k < (Num2DerivVals - 1):
             print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] > 0:
             pass
-        elif SecondDeriv[k+1] == 0:
-            pass
-    elif SecondDeriv[k] == 0:
-        if SecondDeriv[k+1] > 0:
-            InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
-        elif SecondDeriv[k+1] < 0:
-            InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] == 0:
             pass
     k += 1
