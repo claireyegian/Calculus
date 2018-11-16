@@ -213,11 +213,11 @@ if NumInflec != 0: #If there are inflection points, the following if statements 
     elif SecondDeriv[-1] < 0: #If the last numerical second derivative is negative, then the last interval is concave down.
         print('The function is concave down on the interval ['+str(round(InflecList[-1],4))+','+str(round(IntervalEnd,4))+'].')
 elif NumInflec == 0: #If there are no inflection points, the following if statements decide concavity.
-    if SecondDeriv[0] > 0: #If the first numerical second derivative is positive,
+    if SecondDeriv[0] > 0: #If the first numerical second derivative is positive, then the function is concave up on the whole interval.
         print('The function is concave up on the interval ['+str(round(IntervalBeg,4))+','+str(round(IntervalEnd,4))+'].')
-    elif SecondDeriv[0] < 0:
+    elif SecondDeriv[0] < 0: #If the first numerical second derivative is negative, then the function is concave down on the whole interval.
         print('The function is concave down on the interval ['+str(round(IntervalBeg,4))+','+str(round(IntervalEnd,4))+'].')
-    elif SecondDeriv[0] == 0:
+    elif SecondDeriv[0] == 0 and SecondDeriv[-1] == 0: #If the first and last numerical second derivatives are 0, the program assumes that the function has no concavity. 
         print('The function has no concavity.')
 
 
