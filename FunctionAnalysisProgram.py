@@ -132,10 +132,9 @@ while a2 <= IntervalEnd: #This loop uses the symetric difference quotient to det
 SecondDeriv = [] #This is a list of the numerical second derivative at each step on the function.
 i = 0
 while i < (NumXVals-1): #The loop uses (y-y1)/(x-x1) to determine the slope using the symetric difference quotients from SlopeList and SlopeList2 as y values and 0.001 as the difference in x values.
-    slope = (SlopeList2[i]-SlopeList[i])/0.001
+    slope = (round(SlopeList2[i],6)-round(SlopeList[i],6))/0.001
     SecondDeriv.append(slope)
     i += 1
-
 
 
 
@@ -151,7 +150,7 @@ while k < (Num2DerivVals - 1):
     if SecondDeriv[k] < 0: #If a given numerical second derivative is negative and the following second derivative is positive, the value is added to the list of inflection points.
         if SecondDeriv[k+1] > 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
+            print('There is an inflection point at around x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] < 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -159,7 +158,7 @@ while k < (Num2DerivVals - 1):
     elif SecondDeriv[k] > 0: #If a given numerical second derivative is positive and the following second derivative is negative, the value is added to the list of inflection points.
         if SecondDeriv[k+1] < 0:
             InflecList.append(Find2DX(k))
-            print('There is an inflection point at x='+str(round(Find2DX(k),4)))
+            print('There is an inflection point at around x='+str(round(Find2DX(k),4)))
         elif SecondDeriv[k+1] > 0:
             pass
         elif SecondDeriv[k+1] == 0:
@@ -167,8 +166,7 @@ while k < (Num2DerivVals - 1):
     k += 1
 
 if len(InflecList) == 0: #If there are no values added to the list of inflection points, the function has no inflection points.
-    print('There are no points of inflection')
-
+    print('There are no points of inflection.')
 
 
 
