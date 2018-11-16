@@ -30,7 +30,7 @@ while a <= IntervalEnd:
 
 
 #Finds extreme values
-x = IntervalBeg #Dermines if the first endpoint is a maximum or a minium. If the second y value is higher than the endpoint, it is a min. If the second is lower, it's a max.
+x = IntervalBeg #Determines if the first endpoint is a maximum or a minium. If the second y value is higher than the endpoint, it is a min. If the second is lower, it's a max.
 y1 = eval(function)
 x = IntervalBeg + step
 y2 = eval(function)
@@ -68,7 +68,7 @@ while loc <= (NumXVals - 2): #Runs through all of the recorded numerical derivat
             pass
     loc += 1
 
-x = IntervalEnd - step #Dermines if the last endpoint is a maximum or a minium. If the y value before it is higher than the endpoint, it is a min. If the y value is lower, it's a max.
+x = IntervalEnd - step #Determines if the last endpoint is a maximum or a minium. If the y value before it is higher than the endpoint, it is a min. If the y value is lower, it's a max.
 y3 = eval(function)
 x = IntervalEnd
 y4 = eval(function)
@@ -120,7 +120,7 @@ IncDecIntervals(IncDecList, ExtremaList) #This calls the function above
 #Takes the second derivative at each x value
 SlopeList2 = [] #This a list of numerical derivatives at each of the x values from the first SlopeList transfered 0.001 units to the right.
 a2 = IntervalBeg + 0.001
-while a2 <= IntervalEnd: #This loop uses the symetric difference quotient to determine the numerical derivative at each of the adjusted x values.
+while a2 <= IntervalEnd: #This loop uses the symmetric difference quotient to determine the numerical derivative at each of the adjusted x values.
     x = a2 + h
     f1 = eval(function)
     x = a2 - h
@@ -131,7 +131,7 @@ while a2 <= IntervalEnd: #This loop uses the symetric difference quotient to det
 
 SecondDeriv = [] #This is a list of the numerical second derivative at each step on the function.
 i = 0
-while i < (NumXVals-1): #The loop uses (y-y1)/(x-x1) to determine the slope using the symetric difference quotients from SlopeList and SlopeList2 as y values and 0.001 as the difference in x values.
+while i < (NumXVals-1): #The loop uses (y-y1)/(x-x1) to determine the slope using the symmetric difference quotients from SlopeList and SlopeList2 as y values and 0.001 as the difference in x values.
     slope = (round(SlopeList2[i],6)-round(SlopeList[i],6))/0.001
     SecondDeriv.append(slope)
     i += 1
@@ -175,7 +175,7 @@ if len(InflecList) == 0: #If there are no values added to the list of inflection
 NumInflec = len(InflecList)
 if NumInflec != 0: #If there are inflection points, the following if statements determine concavity.
     ConUpDownList = [] #This creates a list similar to the increasing/decreasing one that records alternating intervals of concavity.
-    if SecondDeriv[0] > 0: #If the first numerical second derivative value is positive, than the next interval will be negative, the next positive, and so on.
+    if SecondDeriv[0] > 0: #The program is finding which intervals are concave up or concave down. If the first numerical second derivative value is positive, then the program will find where the next interval where the second derivative is negative, the next positive, and so on.
         Runs = 1
         while Runs <= (NumInflec-1):
             if Runs%2 != 0:
