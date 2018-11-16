@@ -2,7 +2,7 @@
 #11/6/18
 #Function Analysis Program
 
-from math import sin,cos, tan, acos, asin, atan, e, pi, log, log10, sqrt
+from math import sin, cos, tan, acos, asin, atan, e, pi, log, log10, sqrt
 
 function = input('Enter a function: ')
 IntervalBeg = float(input('Enter the begining of an interval on which the function is continuous: '))
