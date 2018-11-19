@@ -15,3 +15,21 @@ while XVal < IntervalEnd:
     LRAM += y*Width
     XVal += Width
 print(LRAM)
+
+RRAM = 0
+XVal1 =  IntervalEnd
+while XVal1 > IntervalBeg:
+    x = XVal1
+    y = eval(function)
+    RRAM += y*Width
+    XVal1 -= Width
+print(RRAM)
+
+MRAM = 0
+XVal2 =  IntervalBeg + (0.5*Width)
+while XVal2 < IntervalEnd:
+    x = XVal2
+    y = eval(function)
+    MRAM += y*Width
+    XVal2 += Width
+print(MRAM)
