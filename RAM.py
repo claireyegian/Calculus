@@ -14,16 +14,16 @@ while XVal < IntervalEnd:
     y = eval(function)
     LRAM += y*Width
     XVal += Width
-print(LRAM)
+print('LRAM=' + str(LRAM))
 
-"""RRAM = 0
+RRAM = 0
 XVal1 =  IntervalEnd
 while XVal1 > IntervalBeg:
     x = XVal1
     y = eval(function)
     RRAM += y*Width
     XVal1 -= Width
-print(RRAM)
+print('RRAM=' + str(RRAM))
 
 MRAM = 0
 XVal2 =  IntervalBeg + (0.5*Width)
@@ -32,4 +32,4 @@ while XVal2 < IntervalEnd:
     y = eval(function)
     MRAM += y*Width
     XVal2 += Width
-print(MRAM)"""
+print('MRAM=' + str(MRAM))
