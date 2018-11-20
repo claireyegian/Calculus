@@ -2,6 +2,8 @@
 #11/19/18
 #RAM program - calculates LRAM, RRAM, and MRAM for an interval of a function
 
+from math import sin, cos, tan, acos, asin, atan, exp, e, pi, log, log10, sqrt, log2
+
 function = input('Enter your function: ')
 IntervalBeg = float(input('Enter the begining of your interval: '))
 IntervalEnd = float(input('Enter the end of your interval: '))
